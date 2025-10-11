@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+# Always get an absolute stable path to the directory
+## BASH_SOURCE[0] gives back the whole path: ~/personal/dev-env/setup/run.sh
+## dirname strips off the filename of the path: ~/personal/dev-env/setup/
+
+# IMPROVED: Added quotes around dirname expansion and error suppression
+# &> /dev/null - redirects both stdout and stderr to /dev/null (silence errors)
+# Quotes around $( dirname "${BASH_SOURCE[0]}" ) - handles paths with spaces
+# Quotes around entire command substitution - prevents word splitting
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+# if i just did DEV_ENV=$(pwd) ./run then this is needed for the rest of the scripts
+
+# Check if the DEV_ENV environment variable is set and not empty
+if [ -z "$DEV_ENV" ]; then
+    # -z tests for "zero length" - returns true if variable is empty or unset
+    # If DEV_ENV is missing, print error message to user
+    echo "env var DEV_ENV needs to be present"
+    # Exit immediately with status code 1 (indicates failure/error)
+    # This prevents the script from continuing without required environment
+    exit 1
+fi
+
+# Re-export DEV_ENV to ensure child processes can access it
+# This is needed because:
+# 1. If DEV_ENV was set inline like: DEV_ENV=$(pwd) ./run
+#    - The variable exists in THIS script but isn't exported to child processes
+# 2. If DEV_ENV was already set but not exported in the parent shell
+#    - Child scripts in runs/ directory wouldn't be able to access it
+# 3. This ensures ALL executable scripts in runs/ can see the DEV_ENV value
+export DEV_ENV="$DEV_ENV"
+
+dry_run="0"
+
+# Dry run; $# means all arguments passed to the script
+while [[ $# -gt 0 ]]; do #-gt := greater than; means: continue as long as there are unprocessed arguments
+    if [[ $1 == "--dry" ]]; then
+        dry_run="1"
+    else
+        filter="$1"
+    fi
+    shift #removes the first argument from the argument list
+done
+
+# protective logging and execute based on the dry flag
+log() {
+    if [[ $dry_run == "1" ]]; then
+        echo "[DRY_RUN]: $@"
+    else
+        echo "$@"
+    fi
+}
+
+execute() {
+    log "execute $@"
+    if [[ $dry_run == "1" ]]; then
+        return
+    fi
+    "$@"
+}
+
+# debugging Info: Giving us current directory and the filter we applied
+log "$script_dir -- $filter"
+
+cd $script_dir
+# $(find ./runs ...) outpus just text; a list of file paths, one per line
+scripts=$(find ./runs -maxdepth 1 -mindepth 1 -executable -type f)
+
+# since we wrote $scripts without quotes, bash splits it on whitespace (spaces, tabs, newlines, so the output becomes (f.e. three) separate words)
+for script in $scripts; do
+    if echo "$script" | grep -qv "$filter"; then # if this script does not contain the filter string, then continue
+        log "filtering $script"
+        continue
+    fi
+
+    execute ./$script # if it does contain the string: the script will be executed
+done

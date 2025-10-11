@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "Installing Starship prompt..."
+
+# Install Starship
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+echo "Starship installed successfully"

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Run this script with bash
+
+# 1. Download and run the official Rust installer (rustup.rs).
+#    - curl fetches the script securely over HTTPS (with TLS v1.2 enforced).
+#    - The script installs "rustup", which manages Rust versions and tools (rustc, cargo).
+#    - This is the recommended way to install Rust on Linux, including Ubuntu.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+# 2. Load Cargo environment variables into the current shell session.
+#    - The Rust installer puts Cargo (Rust's package manager/build tool) into ~/.cargo/bin.
+#    - Normally you'd need to restart your shell, but "source" makes it available immediately.
+source $HOME/.cargo/env
+
+# 3. Install Stylua using Cargo.
+#    - "cargo install" compiles and installs Rust-based programs into ~/.cargo/bin.
+#    - Stylua is a Lua code formatter (commonly used in Neovim or Lua projects).
+#    - The "--features luajit" option enables LuaJIT support, which improves performance.
+cargo install stylua --features luajit

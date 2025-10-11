@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+script_dir="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+dry="0"
+
+while [[ $# > 0 ]]; do
+    if [[ "$1" == "--dry" ]]; then
+        dry="1"
+    fi
+    shift
+done
+
+log() {
+    if [[ $dry == "1" ]]; then
+        echo "[DRY_RUN]: $@"
+    else
+        echo "$@"
+    fi
+}
+
+execute() {
+    log "execute: $@"
+    if [[ $dry == "1" ]]; then
+        return
+    fi
+
+    "$@"
+}
+
+log "--------- dev-env ---------"
+
+cd $script_dir
+
+# Set default if XDG_CONFIG_HOME is not set
+if [ -z "$XDG_CONFIG_HOME" ]; then
+    XDG_CONFIG_HOME="$HOME/.config"
+    log "XDG_CONFIG_HOME not set, using default: $XDG_CONFIG_HOME"
+fi
+
+copy_dir() {
+    from=$1
+    to=$2
+
+    # Check if source directory exists
+    if [ ! -d "$from" ]; then
+        log "Warning: Source directory '$from' does not exist"
+        return 1
+    fi
+
+    # Create destination directory if it doesn't exist
+    execute mkdir -p "$to"
+
+    pushd "$from" >/dev/null || return 1
+    dirs=$(find . -maxdepth 1 -mindepth 1 -type d)
+
+    if [ -z "$dirs" ]; then
+        log "No subdirectories found in '$from'"
+        popd >/dev/null
+        return 0
+    fi
+
+    for dir in $dirs; do
+        log "Copying directory: $dir"
+        execute rm -rf "$to/$dir"
+        execute cp -r "$dir" "$to/$dir"
+    done
+    popd >/dev/null
+}
+
+# copying my config to my XDG_CONFIG_HOME
+copy_dir env/.config $XDG_CONFIG_HOME
+
+# -- Copy individual dotfiles like .bashrc, .zshrc, etc. -- #
+
+copy_file() {
+    from=$1
+    to=$2
+    # basename strips away filepath from $from
+    name=$(basename $from)
+    execute rm -f $to/$name    # Delete the DESTINATION file
+    execute cp $from $to/$name # Copy source to destination
+}
+
+# Copies individual dotfiles from env/ to home directory
+copy_file env/.bashrc ~/
+copy_file env/.zshrc ~/
+copy_file env/.zsh_profile ~/
+
+# -- tmux-sessionizer -- #
+execute mkdir -p $HOME/.local/scripts
+# copy tmux-sessionizer
+copy_file env/.local/scripts/tmux-sessionizer $HOME/.local/scripts/
+# -- End tmux-sessionizer -- #
