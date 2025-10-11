@@ -119,3 +119,12 @@ Available installers: `libs`, `rust`, `tmux`, `node`, `starship`, `neovim`, `zsh
 - Works in Docker containers (handles sudo availability automatically)
 - All installations are non-interactive
 - Configuration files are backed up before modification
+
+Before starting nvim:
+
+```
+# Remove treesitter plugin and cache
+rm -rf ~/.local/share/nvim/lazy/nvim-treesitter
+rm -rf ~/.local/state/nvim
+rm -rf ~/.cache/nvim
+```
