@@ -1,0 +1,727 @@
+/home/marc/personal/dev-arch -- 
+execute ././runs/arch_libs.sh
+Installing system libraries and tools...
+Detected Arch Linux (pacman)
+:: Synchronizing package databases...
+ core downloading...
+ extra downloading...
+ multilib downloading...
+ omarchy downloading...
+warning: git-2.51.0-1 is up to date -- reinstalling
+warning: ripgrep-14.1.1-1 is up to date -- reinstalling
+warning: jq-1.8.1-1 is up to date -- reinstalling
+warning: tldr-3.4.3-1 is up to date -- reinstalling
+warning: python-pip-25.2-1 is up to date -- reinstalling
+warning: base-devel-1-2 is up to date -- reinstalling
+resolving dependencies...
+looking for conflicting packages...
+
+Package (7)       Old Version  New Version  Net Change  Download Size
+
+core/base-devel   1-2          1-2            0.00 MiB               
+extra/git         2.51.0-1     2.51.0-1       0.00 MiB               
+extra/jq          1.8.1-1      1.8.1-1        0.00 MiB               
+extra/python-pip  25.2-1       25.2-1         0.00 MiB               
+extra/ripgrep     14.1.1-1     14.1.1-1       0.00 MiB               
+extra/tldr        3.4.3-1      3.4.3-1        0.00 MiB               
+extra/xclip                    0.13-6         0.03 MiB       0.01 MiB
+
+Total Download Size:    0.01 MiB
+Total Installed Size:  49.36 MiB
+Net Upgrade Size:       0.03 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ xclip-0.13-6-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Wait for limine-snapper-sync to finish before updating, installing or removing.
+:: Processing package changes...
+reinstalling git...
+reinstalling ripgrep...
+installing xclip...
+reinstalling jq...
+reinstalling tldr...
+reinstalling python-pip...
+reinstalling base-devel...
+:: Running post-transaction hooks...
+(1/4) Creating system user accounts...
+(2/4) Reloading system manager configuration...
+(3/4) Restarting marked services...
+(4/4) Arming ConditionNeedsUpdate...
+resolving dependencies...
+looking for conflicting packages...
+
+Package (6)          New Version  Net Change  Download Size
+
+extra/cairomm-1.16   1.18.0-2       0.40 MiB       0.09 MiB
+extra/glibmm-2.68    2.86.0-1       6.22 MiB       1.06 MiB
+extra/gtkmm-4.0      4.20.0-1       9.82 MiB       1.48 MiB
+extra/libsigc++-3.0  3.6.0-1        0.25 MiB       0.05 MiB
+extra/pangomm-2.48   2.56.1-1       0.57 MiB       0.11 MiB
+extra/pavucontrol    1:6.2-1        1.04 MiB       0.21 MiB
+
+Total Download Size:    3.01 MiB
+Total Installed Size:  18.31 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ gtkmm-4.0-4.20.0-1-x86_64 downloading...
+ glibmm-2.68-2.86.0-1-x86_64 downloading...
+ pavucontrol-1:6.2-1-x86_64 downloading...
+ pangomm-2.48-2.56.1-1-x86_64 downloading...
+ cairomm-1.16-1.18.0-2-x86_64 downloading...
+ libsigc++-3.0-3.6.0-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Wait for limine-snapper-sync to finish before updating, installing or removing.
+:: Processing package changes...
+installing libsigc++-3.0...
+installing glibmm-2.68...
+installing cairomm-1.16...
+installing pangomm-2.48...
+installing gtkmm-4.0...
+installing pavucontrol...
+:: Running post-transaction hooks...
+(1/3) Arming ConditionNeedsUpdate...
+(2/3) Updating icon theme caches...
+(3/3) Updating the desktop file MIME type cache...
+Installing fzf...
+Cloning into '/home/marc/personal/fzf'...
+Downloading bin/fzf ...
+  - Found in $PATH
+  - Creating symlink: bin/fzf -> /usr/bin/fzf
+  - Checking fzf executable ... 0.65.2
+
+Generate /home/marc/.fzf.bash ... OK
+Generate /home/marc/.fzf.zsh ... OK
+
+Update /home/marc/.bashrc:
+  - [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+    - Already exists:
+        Line 112:[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+    ~ Skipped
+
+Update /home/marc/.zshrc:
+  - [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    + Added
+
+Finished. Restart your shell or reload config file.
+   source ~/.bashrc  # bash
+   source ~/.zshrc   # zsh
+
+Use uninstall script to remove fzf.
+
+For more information, see: https://github.com/junegunn/fzf
+Libraries and tools installation complete!
+Verifying installations:
+git version 2.51.0
+✓ git installed
+ripgrep 14.1.1
+
+features:+pcre2
+simd(compile):+SSE2,-SSSE3,-AVX2
+simd(runtime):+SSE2,+SSSE3,+AVX2
+
+PCRE2 10.43 is available (JIT is available)
+✓ ripgrep installed
+jq-1.8.1
+✓ jq installed
+0.65.2 (416aff86)
+✓ fzf installed
+execute ././runs/arch_neovim.sh
+Installing Neovim...
+Installing Neovim from Arch repositories...
+warning: neovim-0.11.4-1 is up to date -- reinstalling
+resolving dependencies...
+looking for conflicting packages...
+
+Package (1)   Old Version  New Version  Net Change
+
+extra/neovim  0.11.4-1     0.11.4-1       0.00 MiB
+
+Total Installed Size:  28.83 MiB
+Net Upgrade Size:       0.00 MiB
+
+:: Proceed with installation? [Y/n] 
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Wait for limine-snapper-sync to finish before updating, installing or removing.
+:: Processing package changes...
+reinstalling neovim...
+:: Running post-transaction hooks...
+(1/3) Arming ConditionNeedsUpdate...
+(2/3) Updating icon theme caches...
+(3/3) Updating the desktop file MIME type cache...
+Installing additional packages for Neovim development
+warning: lua-5.4.8-2 is up to date -- reinstalling
+warning: luarocks-3.12.2-1 is up to date -- reinstalling
+resolving dependencies...
+looking for conflicting packages...
+
+Package (2)     Old Version  New Version  Net Change
+
+extra/lua       5.4.8-2      5.4.8-2        0.00 MiB
+extra/luarocks  3.12.2-1     3.12.2-1       0.00 MiB
+
+Total Installed Size:  2.14 MiB
+Net Upgrade Size:      0.00 MiB
+
+:: Proceed with installation? [Y/n] 
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Wait for limine-snapper-sync to finish before updating, installing or removing.
+:: Processing package changes...
+reinstalling lua...
+reinstalling luarocks...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+Installing https://luarocks.org/luacheck-1.2.0-1.src.rock
+
+Missing dependencies for luacheck 1.2.0-1:
+   argparse >= 0.6.0 (not installed)
+   luafilesystem >= 1.6.3 (not installed)
+
+luacheck 1.2.0-1 depends on lua >= 5.1 (5.4-1 provided by VM: success)
+luacheck 1.2.0-1 depends on argparse >= 0.6.0 (not installed)
+Installing https://luarocks.org/argparse-0.7.1-1.src.rock
+
+
+argparse 0.7.1-1 depends on lua >= 5.1, < 5.5 (5.4-1 provided by VM: success)
+No existing manifest. Attempting to rebuild...
+argparse 0.7.1-1 is now installed in /usr (license: MIT)
+
+luacheck 1.2.0-1 depends on luafilesystem >= 1.6.3 (not installed)
+Installing https://luarocks.org/luafilesystem-1.8.0-1.src.rock
+
+
+luafilesystem 1.8.0-1 depends on lua >= 5.1 (5.4-1 provided by VM: success)
+gcc -O2 -fPIC -I/usr/include -c src/lfs.c -o src/lfs.o
+gcc  -shared -o /tmp/luarocks_build-LuaFileSystem-1.8.0-1-3971825/lfs.so src/lfs.o
+luafilesystem 1.8.0-1 is now installed in /usr (license: MIT/X11)
+
+luacheck 1.2.0-1 is now installed in /usr (license: MIT)
+
+Neovim installation complete!
+NVIM v0.11.4
+Build type: RelWithDebInfo
+LuaJIT 2.1.1753364724
+Run "nvim -V1 -v" for more info
+execute ././runs/arch_node.sh
+Installing Node.js and npm...
+Installing Node.js from Arch repositories...
+resolving dependencies...
+looking for conflicting packages...
+
+Package (7)        New Version  Net Change  Download Size
+
+extra/libngtcp2    1.16.0-1       0.64 MiB       0.19 MiB
+extra/node-gyp     11.4.2-1       8.79 MiB       1.27 MiB
+extra/nodejs-nopt  7.2.1-1        0.03 MiB       0.01 MiB
+extra/semver       7.7.3-1        0.09 MiB       0.03 MiB
+extra/simdjson     1:4.0.7-1      5.89 MiB       0.24 MiB
+extra/nodejs       24.9.0-1      67.80 MiB      16.75 MiB
+extra/npm          11.6.2-1       7.94 MiB       1.45 MiB
+
+Total Download Size:   19.95 MiB
+Total Installed Size:  91.18 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ nodejs-24.9.0-1-x86_64 downloading...
+ npm-11.6.2-1-any downloading...
+ node-gyp-11.4.2-1-any downloading...
+ simdjson-1:4.0.7-1-x86_64 downloading...
+ libngtcp2-1.16.0-1-x86_64 downloading...
+ semver-7.7.3-1-any downloading...
+ nodejs-nopt-7.2.1-1-any downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Wait for limine-snapper-sync to finish before updating, installing or removing.
+:: Processing package changes...
+installing libngtcp2...
+installing simdjson...
+installing nodejs...
+Optional dependencies for nodejs
+    npm: nodejs package manager [pending]
+installing nodejs-nopt...
+installing semver...
+installing node-gyp...
+Optional dependencies for node-gyp
+    gcc: to build C++ modules [installed]
+    make: to build C++ modules [installed]
+    python: to build C++ modules [installed]
+installing npm...
+Optional dependencies for npm
+    git: for dependencies using Git URL's [installed]
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+Installing npm packages globally...
+npm error code EACCES
+npm error syscall rename
+npm error path /usr/lib/node_modules/npm
+npm error dest /usr/lib/node_modules/.npm-qUIFSsiV
+npm error errno -13
+npm error Error: EACCES: permission denied, rename '/usr/lib/node_modules/npm' -> '/usr/lib/node_modules/.npm-qUIFSsiV'
+npm error     at async Object.rename (node:internal/fs/promises:787:10)
+npm error     at async moveFile (/usr/lib/node_modules/npm/node_modules/@npmcli/fs/lib/move-file.js:30:5)
+npm error     at async Promise.allSettled (index 0)
+npm error     at async [reifyPackages] (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:313:11)
+npm error     at async Arborist.reify (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:125:5)
+npm error     at async Install.exec (/usr/lib/node_modules/npm/lib/commands/install.js:150:5)
+npm error     at async Npm.exec (/usr/lib/node_modules/npm/lib/npm.js:208:9)
+npm error     at async module.exports (/usr/lib/node_modules/npm/lib/cli/entry.js:67:5) {
+npm error   errno: -13,
+npm error   code: 'EACCES',
+npm error   syscall: 'rename',
+npm error   path: '/usr/lib/node_modules/npm',
+npm error   dest: '/usr/lib/node_modules/.npm-qUIFSsiV'
+npm error }
+npm error
+npm error The operation was rejected by your operating system.
+npm error It is likely you do not have the permissions to access this file as the current user
+npm error
+npm error If you believe this might be a permissions issue, please double-check the
+npm error permissions of the file and its containing directories, or try running
+npm error the command again as root/Administrator.
+npm error A complete log of this run can be found in: /home/marc/.npm/_logs/2025-10-11T18_43_12_687Z-debug-0.log
+npm error code EACCES
+npm error syscall mkdir
+npm error path /usr/lib/node_modules/yarn
+npm error errno -13
+npm error Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/yarn'
+npm error     at async mkdir (node:internal/fs/promises:861:10)
+npm error     at async /usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:576:20
+npm error     at async Promise.allSettled (index 0)
+npm error     at async [reifyPackages] (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:313:11)
+npm error     at async Arborist.reify (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:125:5)
+npm error     at async Install.exec (/usr/lib/node_modules/npm/lib/commands/install.js:150:5)
+npm error     at async Npm.exec (/usr/lib/node_modules/npm/lib/npm.js:208:9)
+npm error     at async module.exports (/usr/lib/node_modules/npm/lib/cli/entry.js:67:5) {
+npm error   errno: -13,
+npm error   code: 'EACCES',
+npm error   syscall: 'mkdir',
+npm error   path: '/usr/lib/node_modules/yarn'
+npm error }
+npm error
+npm error The operation was rejected by your operating system.
+npm error It is likely you do not have the permissions to access this file as the current user
+npm error
+npm error If you believe this might be a permissions issue, please double-check the
+npm error permissions of the file and its containing directories, or try running
+npm error the command again as root/Administrator.
+npm error A complete log of this run can be found in: /home/marc/.npm/_logs/2025-10-11T18_43_15_137Z-debug-0.log
+npm error code EACCES
+npm error syscall mkdir
+npm error path /usr/lib/node_modules/pnpm
+npm error errno -13
+npm error Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/pnpm'
+npm error     at async mkdir (node:internal/fs/promises:861:10)
+npm error     at async /usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:576:20
+npm error     at async Promise.allSettled (index 0)
+npm error     at async [reifyPackages] (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:313:11)
+npm error     at async Arborist.reify (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:125:5)
+npm error     at async Install.exec (/usr/lib/node_modules/npm/lib/commands/install.js:150:5)
+npm error     at async Npm.exec (/usr/lib/node_modules/npm/lib/npm.js:208:9)
+npm error     at async module.exports (/usr/lib/node_modules/npm/lib/cli/entry.js:67:5) {
+npm error   errno: -13,
+npm error   code: 'EACCES',
+npm error   syscall: 'mkdir',
+npm error   path: '/usr/lib/node_modules/pnpm'
+npm error }
+npm error
+npm error The operation was rejected by your operating system.
+npm error It is likely you do not have the permissions to access this file as the current user
+npm error
+npm error If you believe this might be a permissions issue, please double-check the
+npm error permissions of the file and its containing directories, or try running
+npm error the command again as root/Administrator.
+npm error A complete log of this run can be found in: /home/marc/.npm/_logs/2025-10-11T18_43_15_627Z-debug-0.log
+Installing n (Node.js version manager)...
+npm error code EACCES
+npm error syscall mkdir
+npm error path /usr/lib/node_modules/n
+npm error errno -13
+npm error Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/n'
+npm error     at async mkdir (node:internal/fs/promises:861:10)
+npm error     at async /usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:576:20
+npm error     at async Promise.allSettled (index 0)
+npm error     at async [reifyPackages] (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:313:11)
+npm error     at async Arborist.reify (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:125:5)
+npm error     at async Install.exec (/usr/lib/node_modules/npm/lib/commands/install.js:150:5)
+npm error     at async Npm.exec (/usr/lib/node_modules/npm/lib/npm.js:208:9)
+npm error     at async module.exports (/usr/lib/node_modules/npm/lib/cli/entry.js:67:5) {
+npm error   errno: -13,
+npm error   code: 'EACCES',
+npm error   syscall: 'mkdir',
+npm error   path: '/usr/lib/node_modules/n'
+npm error }
+npm error
+npm error The operation was rejected by your operating system.
+npm error It is likely you do not have the permissions to access this file as the current user
+npm error
+npm error If you believe this might be a permissions issue, please double-check the
+npm error permissions of the file and its containing directories, or try running
+npm error the command again as root/Administrator.
+npm error A complete log of this run can be found in: /home/marc/.npm/_logs/2025-10-11T18_43_16_346Z-debug-0.log
+Setting up latest Node.js with n...
+Node.js installation complete!
+v24.9.0
+11.6.2
+execute ././runs/arch_tmux.sh
+Installing tmux...
+Installing tmux from Arch repositories...
+resolving dependencies...
+looking for conflicting packages...
+
+Package (2)        New Version  Net Change  Download Size
+
+extra/libutempter  1.2.3-1        0.03 MiB       0.01 MiB
+extra/tmux         3.5_a-1        1.03 MiB       0.45 MiB
+
+Total Download Size:   0.45 MiB
+Total Installed Size:  1.06 MiB
+
+:: Proceed with installation? [Y/n] 
+:: Retrieving packages...
+ tmux-3.5_a-1-x86_64 downloading...
+ libutempter-1.2.3-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Running pre-transaction hooks...
+(1/1) Wait for limine-snapper-sync to finish before updating, installing or removing.
+:: Processing package changes...
+installing libutempter...
+installing tmux...
+:: Running post-transaction hooks...
+(1/2) Creating temporary files...
+(2/2) Arming ConditionNeedsUpdate...
+tmux installation complete!
+tmux 3.5a
+execute ././runs/arch_zsh.sh
+Installing Zsh and Oh My Zsh...
+Password: 
+Changing shell for marc.
+Shell changed.
+Installing oh-my-zsh non-interactively
+Cloning Oh My Zsh...
+From https://github.com/ohmyzsh/ohmyzsh
+ * [new branch]      master     -> origin/master
+Already on 'master'
+branch 'master' set up to track 'origin/master'.
+/home/marc/personal/dev-arch
+
+Looking for an existing zsh config...
+Found /home/marc/.zshrc. Keeping...
+         __                                     __   
+  ____  / /_     ____ ___  __  __   ____  _____/ /_  
+ / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ 
+/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / 
+\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  
+                        /____/                       ....is now installed!
+
+
+Before you scream Oh My Zsh! look over the `.zshrc` file to select plugins, themes, and options.
+
+• Follow us on X: https://x.com/ohmyzsh
+• Join our Discord community: https://discord.gg/ohmyzsh
+• Get stickers, t-shirts, coffee mugs and more: https://shop.planetargon.com/collections/oh-my-zsh
+
+Run zsh to try it out.
+Zsh and Oh My Zsh installation complete!
+To switch to zsh, run: exec zsh
+execute ././runs/foobar
+hello from foobar
+execute ././runs/rust
+info: downloading installer
+warn: It looks like you have an existing installation of Rust at:
+warn: /usr/bin
+warn: It is recommended that rustup be the primary Rust installation.
+warn: Otherwise you may have confusion unless you are careful with your PATH.
+warn: If you are sure that you want both rustup and your already installed Rust
+warn: then please reply `y' or `yes' or set RUSTUP_INIT_SKIP_PATH_CHECK to yes
+warn: or pass `-y' to ignore all ignorable checks.
+error: cannot install while Rust is installed
+warn: continuing (because the -y flag is set and the error is ignorable)
+info: profile set to 'default'
+info: default host triple is x86_64-unknown-linux-gnu
+info: syncing channel updates for 'stable-x86_64-unknown-linux-gnu'
+info: latest update on 2025-09-18, rust version 1.90.0 (1159e78c4 2025-09-14)
+info: downloading component 'cargo'
+info: downloading component 'clippy'
+info: downloading component 'rust-docs'
+info: downloading component 'rust-std'
+info: downloading component 'rustc'
+info: downloading component 'rustfmt'
+info: installing component 'cargo'
+info: installing component 'clippy'
+info: installing component 'rust-docs'
+info: installing component 'rust-std'
+info: installing component 'rustc'
+info: installing component 'rustfmt'
+info: default toolchain set to 'stable-x86_64-unknown-linux-gnu'
+
+  stable-x86_64-unknown-linux-gnu installed - rustc 1.90.0 (1159e78c4 2025-09-14)
+
+
+Rust is installed now. Great!
+
+To get started you may need to restart your current shell.
+This would reload your PATH environment variable to include
+Cargo's bin directory ($HOME/.cargo/bin).
+
+To configure your current shell, you need to source
+the corresponding env file under $HOME/.cargo.
+
+This is usually done by running one of the following (note the leading DOT):
+. "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
+source "$HOME/.cargo/env.fish"  # For fish
+source $"($nu.home-path)/.cargo/env.nu"  # For nushell
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded stylua v2.3.0
+  Installing stylua v2.3.0
+    Updating crates.io index
+     Locking 106 packages to latest compatible versions
+      Adding clap v3.2.25 (available: v4.5.48)
+      Adding console v0.15.11 (available: v0.16.1)
+      Adding env_logger v0.10.2 (available: v0.11.8)
+      Adding thiserror v1.0.69 (available: v2.0.17)
+      Adding toml v0.8.23 (available: v0.9.8)
+ Downloading crates ...
+  Downloaded ignore v0.4.23
+  Downloaded quote v1.0.41
+  Downloaded termcolor v1.4.1
+  Downloaded full_moon_derive v0.11.0
+  Downloaded serde_repr v0.1.20
+  Downloaded atty v0.2.14
+  Downloaded clap_lex v0.2.4
+  Downloaded bitflags v1.3.2
+  Downloaded threadpool v1.8.1
+  Downloaded same-file v1.0.6
+  Downloaded lsp-textdocument v0.4.2
+  Downloaded lsp-server v0.7.9
+  Downloaded heck v0.4.1
+  Downloaded paste v1.0.15
+  Downloaded cfg-if v1.0.3
+  Downloaded version_check v0.9.5
+  Downloaded fluent-uri v0.1.4
+  Downloaded strsim v0.10.0
+  Downloaded bytecount v0.6.9
+  Downloaded unicode-xid v0.2.6
+  Downloaded ec4rs v1.2.0
+  Downloaded smol_str v0.3.2
+  Downloaded proc-macro-error-attr v1.0.4
+  Downloaded clap_derive v3.2.25
+  Downloaded num_cpus v1.17.0
+  Downloaded anyhow v1.0.100
+  Downloaded walkdir v2.5.0
+  Downloaded proc-macro-error v1.0.4
+  Downloaded os_str_bytes v6.6.1
+  Downloaded env_logger v0.10.2
+  Downloaded textwrap v0.16.2
+  Downloaded console v0.15.11
+  Downloaded proc-macro2 v1.0.101
+  Downloaded unicode-ident v1.0.19
+  Downloaded similar v2.7.0
+  Downloaded derive_more v1.0.0
+  Downloaded serde_derive v1.0.228
+  Downloaded indexmap v1.9.3
+  Downloaded log v0.4.28
+  Downloaded serde v1.0.228
+  Downloaded lsp-types v0.97.0
+  Downloaded borsh v1.5.7
+  Downloaded serde_core v1.0.228
+  Downloaded hashbrown v0.16.0
+  Downloaded derive_more-impl v1.0.0
+  Downloaded indexmap v2.11.4
+  Downloaded regex v1.12.1
+  Downloaded memchr v2.7.6
+  Downloaded hashbrown v0.12.3
+  Downloaded serde_json v1.0.145
+  Downloaded winnow v0.7.13
+  Downloaded clap v3.2.25
+  Downloaded syn v1.0.109
+  Downloaded syn v2.0.106
+  Downloaded unicode-width v0.2.2
+  Downloaded regex-syntax v0.8.7
+  Downloaded full_moon v2.0.0
+  Downloaded regex-automata v0.4.12
+  Downloaded libc v0.2.177
+   Compiling proc-macro2 v1.0.101
+   Compiling quote v1.0.41
+   Compiling unicode-ident v1.0.19
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling memchr v2.7.6
+   Compiling version_check v0.9.5
+   Compiling autocfg v1.5.0
+   Compiling libc v0.2.177
+   Compiling syn v1.0.109
+   Compiling crossbeam-utils v0.8.21
+   Compiling serde_json v1.0.145
+   Compiling log v0.4.28
+   Compiling bitflags v1.3.2
+   Compiling ryu v1.0.20
+   Compiling regex-syntax v0.8.7
+   Compiling itoa v1.0.15
+   Compiling unicode-xid v0.2.6
+   Compiling proc-macro-error-attr v1.0.4
+   Compiling proc-macro-error v1.0.4
+   Compiling hashbrown v0.16.0
+   Compiling paste v1.0.15
+   Compiling equivalent v1.0.2
+   Compiling hashbrown v0.12.3
+   Compiling indexmap v1.9.3
+   Compiling fluent-uri v0.1.4
+   Compiling same-file v1.0.6
+   Compiling os_str_bytes v6.6.1
+   Compiling toml_write v0.1.2
+   Compiling winnow v0.7.13
+   Compiling aho-corasick v1.1.3
+   Compiling syn v2.0.106
+   Compiling bstr v1.12.0
+   Compiling indexmap v2.11.4
+   Compiling crossbeam-epoch v0.9.18
+   Compiling heck v0.4.1
+   Compiling anyhow v1.0.100
+   Compiling thiserror v1.0.69
+   Compiling once_cell v1.21.3
+   Compiling crossbeam-deque v0.8.6
+   Compiling num_cpus v1.17.0
+   Compiling atty v0.2.14
+   Compiling crossbeam-channel v0.5.15
+   Compiling clap_lex v0.2.4
+   Compiling walkdir v2.5.0
+   Compiling strsim v0.10.0
+   Compiling regex-automata v0.4.12
+   Compiling bytecount v0.6.9
+   Compiling textwrap v0.16.2
+   Compiling cfg-if v1.0.3
+   Compiling unicode-width v0.2.2
+   Compiling termcolor v1.4.1
+   Compiling threadpool v1.8.1
+   Compiling console v0.15.11
+   Compiling env_logger v0.10.2
+   Compiling lazy_static v1.5.0
+   Compiling ec4rs v1.2.0
+   Compiling clap_derive v3.2.25
+   Compiling globset v0.4.16
+   Compiling full_moon_derive v0.11.0
+   Compiling regex v1.12.1
+   Compiling ignore v0.4.23
+   Compiling clap v3.2.25
+   Compiling serde_derive v1.0.228
+   Compiling derive_more-impl v1.0.0
+   Compiling serde_repr v0.1.20
+   Compiling thiserror-impl v1.0.69
+   Compiling derive_more v1.0.0
+   Compiling serde_spanned v0.6.9
+   Compiling toml_datetime v0.6.11
+   Compiling smol_str v0.3.2
+   Compiling lsp-types v0.97.0
+   Compiling similar v2.7.0
+   Compiling lsp-server v0.7.9
+   Compiling full_moon v2.0.0
+   Compiling toml_edit v0.22.27
+   Compiling toml v0.8.23
+   Compiling lsp-textdocument v0.4.2
+   Compiling stylua v2.3.0
+    Finished `release` profile [optimized] target(s) in 33.64s
+  Installing /home/marc/.cargo/bin/stylua
+   Installed package `stylua v2.3.0` (executable `stylua`)
+execute ././runs/starship
+Installing Starship prompt...
+
+  [4mConfiguration(B[m
+[1m[30m>(B[m [1mBin directory(B[m: [32m/usr/local/bin(B[m
+[1m[30m>(B[m [1mPlatform(B[m:      [32munknown-linux-musl(B[m
+[1m[30m>(B[m [1mArch(B[m:          [32mx86_64(B[m
+
+[1m[30m>(B[m Tarball URL: [4m[34mhttps://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-musl.tar.gz(B[m
+[33m! Escalated permissions are required to install to /usr/local/bin(B[m
+[1m[30m>(B[m Installing Starship as root, please wait…
+[32m✓(B[m Starship latest installed
+
+[1m[30m>(B[m Please follow the steps for your shell to complete the installation:
+  [1m[4mbash(B[m
+  Add the following to the end of [1m~/.bashrc(B[m:
+
+	eval "$(starship init bash)"
+
+  [1m[4mzsh(B[m
+  Add the following to the end of [1m~/.zshrc(B[m:
+
+	eval "$(starship init zsh)"
+
+  [1m[4mion(B[m
+  Add the following to the end of [1m~/.config/ion/initrc(B[m:
+
+	eval $(starship init ion)
+
+  [1m[4mtcsh(B[m
+  Add the following to the end of [1m~/.tcshrc(B[m:
+
+	eval `starship init tcsh`
+
+  [1m[4mxonsh(B[m
+  Add the following to the end of [1m~/.xonshrc(B[m:
+
+	execx($(starship init xonsh))
+
+  [1m[4mfish(B[m
+  Add the following to the end of [1m~/.config/fish/config.fish(B[m:
+
+	starship init fish | source
+
+  [1m[4melvish(B[m
+  [1mWarning(B[m Only elvish v0.17 or higher is supported.
+  And add the following to the end of ~/.elvish/rc.elv:
+
+	eval (starship init elvish)
+
+  [1m[4mnushell(B[m
+  [1mWarning(B[m This will change in the future.
+  Only Nushell v0.96 or higher is supported.
+  And add the following to the end of [1myour nu config file(B[m (find it by running [1m$nu.config-path(B[m in Nushell):
+
+	mkdir ($nu.data-dir | path join "vendor/autoload")
+        starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+  [1m[4mPowerShell(B[m
+  Add the following to the end of [1mMicrosoft.PowerShell_profile.ps1(B[m:
+  You can check the location of this file by querying the $PROFILE variable in PowerShell.
+  Typically the path is ~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 or ~/.config/powershell/Microsoft.PowerShell_profile.ps1 on -Nix.
+
+	Invoke-Expression (&starship init powershell)
+
+  [1m[4mCmd(B[m
+  You need to use Clink (v1.2.30+) with Cmd. Add the following to a file [1mstarship.lua(B[m and place this file in Clink scripts directory:
+
+	load(io.popen('starship init cmd'):read("*a"))()
+
+
+Starship installed successfully

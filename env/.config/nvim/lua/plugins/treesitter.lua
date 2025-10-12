@@ -2,11 +2,19 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
+  event = { 'BufReadPost', 'BufNewFile' },
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
-    require('nvim-treesitter.configs').setup {
+    -- Safely require the configs module with error handling
+    local status_ok, configs = pcall(require, 'nvim-treesitter.configs')
+    if not status_ok then
+      vim.notify('nvim-treesitter.configs not found. Try running :TSUpdate', vim.log.levels.ERROR)
+      return
+    end
+
+    configs.setup {
       -- Add languages to be installed here that you want installed for treesitter
       ensure_installed = {
         'lua',

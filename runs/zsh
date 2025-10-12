@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+echo "Installing Zsh and Oh My Zsh..."
+
+# Detect the distribution
+detect_distro() {
+    if command -v pacman &>/dev/null; then
+        echo "arch"
+    elif command -v apt &>/dev/null; then
+        echo "debian"
+    else
+        echo "unknown"
+    fi
+}
+
+# Check if we're in a container (no sudo) or regular system  
+if command -v sudo &>/dev/null; then
+    SUDO_CMD="sudo"
+else
+    SUDO_CMD=""
+fi
+
+DISTRO=$(detect_distro)
+echo "Detected distribution: $DISTRO"
+
+# Install zsh if not already installed
+if ! command -v zsh &>/dev/null; then
+    echo "Installing zsh..."
+    case $DISTRO in
+        arch)
+            $SUDO_CMD pacman -S --noconfirm --needed zsh
+            ;;
+        debian)
+            $SUDO_CMD apt update
+            DEBIAN_FRONTEND=noninteractive $SUDO_CMD apt install -y zsh
+            ;;
+        *)
+            echo "Unsupported distribution"
+            exit 1
+            ;;
+    esac
+fi
+
+# Change shell without prompting
+if [ -n "$SUDO_CMD" ]; then
+    $SUDO_CMD chsh -s $(which zsh) $USER
+else
+    chsh -s $(which zsh)
+fi
+
+echo "Installing oh-my-zsh non-interactively"
+
+# Install Oh My Zsh if not already installed
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    echo "Oh My Zsh already installed, skipping..."
+fi
+
+echo "Zsh and Oh My Zsh installation complete!"
+echo "To switch to zsh, run: exec zsh"

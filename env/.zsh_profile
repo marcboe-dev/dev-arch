@@ -4,6 +4,13 @@ VIM="nvim"
 # Set custom Starship config path
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
+# Node.js npm global packages
+export PATH="$HOME/.local/npm-global/bin:$PATH"
+
+# Node.js version manager (n)
+export N_PREFIX="$HOME/.local/n"
+export PATH="$N_PREFIX/bin:$PATH"
+
 
 # PERSONAL=$XDG_CONFIG_HOME/personal
 #

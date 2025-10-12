@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+echo "Installing Neovim..."
+
+# Detect the distribution
+detect_distro() {
+    if command -v pacman &>/dev/null; then
+        echo "arch"
+    elif command -v apt &>/dev/null; then
+        echo "debian"
+    else
+        echo "unknown"
+    fi
+}
+
+# Check if we're in a container (no sudo) or regular system
+if command -v sudo &>/dev/null; then
+    SUDO_CMD="sudo"
+else
+    SUDO_CMD=""
+fi
+
+DISTRO=$(detect_distro)
+echo "Detected distribution: $DISTRO"
+
+case $DISTRO in
+    arch)
+        echo "Installing Neovim from Arch repositories..."
+        $SUDO_CMD pacman -S --noconfirm --needed neovim
+        
+        echo "Installing additional packages for Neovim development"
+        $SUDO_CMD pacman -S --noconfirm --needed lua luarocks
+        
+        # Install luacheck via luarocks
+        luarocks install --local luacheck
+        ;;
+    
+    debian)
+        # Check if we're in a container or FUSE doesn't work
+        if command -v modprobe &>/dev/null && modprobe fuse 2>/dev/null; then
+            echo "downloading neovim v0.11.4 AppImage"
+            curl -Lo nvim https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.appimage
+            chmod +x nvim
+            mkdir -p $HOME/.local/bin
+            mv nvim $HOME/.local/bin/
+        else
+            echo "downloading and extracting neovim v0.11.4 (container mode)"
+            curl -Lo nvim.appimage https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.appimage
+            chmod +x nvim.appimage
+            ./nvim.appimage --appimage-extract
+
+            mkdir -p $HOME/.local/bin
+            mkdir -p $HOME/.local/share
+            mkdir -p $HOME/.local/lib
+
+            cp squashfs-root/usr/bin/nvim $HOME/.local/bin/
+            cp -r squashfs-root/usr/share/nvim $HOME/.local/share/
+
+            if [ -d squashfs-root/usr/lib/nvim ]; then
+                cp -r squashfs-root/usr/lib/nvim $HOME/.local/lib/
+            fi
+
+            chmod +x $HOME/.local/bin/nvim
+            rm -rf squashfs-root nvim.appimage
+        fi
+        
+        echo "Installing additional packages for Neovim development"
+        DEBIAN_FRONTEND=noninteractive $SUDO_CMD apt install -y lua5.1 luarocks
+        $SUDO_CMD luarocks install luacheck
+        ;;
+    
+    *)
+        echo "Unsupported distribution"
+        exit 1
+        ;;
+esac
+
+echo "Neovim installation complete!"
+nvim --version
