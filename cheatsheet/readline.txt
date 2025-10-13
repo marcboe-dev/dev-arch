@@ -1,0 +1,24 @@
+=== Command Line Editing Shortcuts (comes from GNU Readline Library) === 
+
+WORD OPERATIONS:
+  Ctrl + w       Delete word backward
+  Alt + d        Delete word forward
+  Alt + b        Move word backward
+  Alt + f        Move word forward
+
+LINE OPERATIONS:
+  Ctrl + a       Move to beginning of line
+  Ctrl + e       Move to end of line
+  Ctrl + k       Delete to end of line
+  Ctrl + u       Delete to beginning of line
+  Ctrl + l       Clear screen
+
+HISTORY:
+  Ctrl + r       Search command history (reverse)
+  Ctrl + p       Previous command (↑)
+  Ctrl + n       Next command (↓)
+
+OTHER:
+  Ctrl + c       Cancel current command
+  Ctrl + d       Exit shell / EOF
+  Ctrl + z       Suspend current process

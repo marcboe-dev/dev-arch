@@ -4,12 +4,8 @@ VIM="nvim"
 # Set custom Starship config path
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
-# Node.js npm global packages
-export PATH="$HOME/.local/npm-global/bin:$PATH"
-
-# Node.js version manager (n)
-export N_PREFIX="$HOME/.local/n"
-export PATH="$N_PREFIX/bin:$PATH"
+# Load Rust/Cargo environment
+source $HOME/.cargo/env
 
 
 # PERSONAL=$XDG_CONFIG_HOME/personal
@@ -68,3 +64,5 @@ addToPathFront $HOME/.local/bin
 addToPathFront $HOME/.local/npm/bin
 addToPathFront $HOME/.local/n/bin/
 addToPathFront $HOME/.local/apps/
+
+alias keys="cat ~/personal/dev/cheatsheet/readline.txt"
