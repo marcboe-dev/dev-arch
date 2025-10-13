@@ -1,6 +1,9 @@
 export XDG_CONFIG_HOME=$HOME/.config
 VIM="nvim"
 
+alias v='nvim'
+alias vi='nvim'
+
 # Set custom Starship config path
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
