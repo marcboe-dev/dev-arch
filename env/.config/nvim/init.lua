@@ -16,7 +16,7 @@ rtp:prepend(lazypath)
 require('lazy').setup {
   require 'plugins.alpha',
   require 'plugins.autocompletion',
-  require 'plugins.bufferline',
+  -- require 'plugins.bufferline',
   require 'plugins.colortheme',
   require 'plugins.gitsigns',
   require 'plugins.indent-blankline',

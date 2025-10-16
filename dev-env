@@ -69,6 +69,7 @@ copy_dir() {
 
 # copying my config to my XDG_CONFIG_HOME
 copy_dir env/.config $XDG_CONFIG_HOME
+copy_dir env/.local ~/.local
 
 # -- Copy individual dotfiles like .bashrc, .zshrc, etc. -- #
 
@@ -85,9 +86,4 @@ copy_file() {
 copy_file env/.bashrc ~/
 copy_file env/.zshrc ~/
 copy_file env/.zsh_profile ~/
-
-# -- tmux-sessionizer -- #
-execute mkdir -p $HOME/.local/scripts
-# copy tmux-sessionizer
-copy_file env/.local/scripts/tmux-sessionizer $HOME/.local/scripts/
-# -- End tmux-sessionizer -- #
+copy_file env/.tmux-sessionizer ~/
