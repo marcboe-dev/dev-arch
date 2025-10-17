@@ -14,10 +14,11 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require('lazy').setup {
+  -- require 'plugins.bufferline',
   require 'plugins.alpha',
   require 'plugins.autocompletion',
-  -- require 'plugins.bufferline',
   require 'plugins.colortheme',
+  require 'plugins.floatterm',
   require 'plugins.gitsigns',
   require 'plugins.indent-blankline',
   require 'plugins.live-server',

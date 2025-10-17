@@ -29,6 +29,10 @@ vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts)
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', opts) -- existing
+vim.keymap.set('n', '<leader>dd', '"_dd', opts) -- delete line
+vim.keymap.set('n', '<leader>D', '"_D', opts) -- delete to end of line
+
 -- Paste without losing register
 vim.keymap.set('x', '<leader>p', [["_dP]])
 
