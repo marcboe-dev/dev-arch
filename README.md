@@ -29,10 +29,6 @@ Generate SSH key:
 
 Copy public key to GitHub:
 
-```bash
-cat ~/.ssh/id_ed25519.pub
-```
-
 Go to **GitHub → Settings → SSH and GPG keys → New SSH key** and paste the public key.
 
 ### 5. Clone Repository
