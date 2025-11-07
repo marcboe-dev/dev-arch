@@ -95,6 +95,38 @@ The `./dev-env` script copies pre-configured dotfiles for:
 - **Zsh** - Shell configuration with aliases and functions
 - **Starship** - Custom prompt theme
 
+## Workflow
+
+This setup provides a seamless terminal-driven workflow for navigating projects and files:
+
+### Starting a Session
+
+Press `Ctrl+F` to launch the **tmux-sessionizer**, which:
+1. Opens an fzf fuzzy finder to search for directories
+2. Creates a new tmux session or switches to an existing one
+3. Drops you directly into Neovim with Neo-tree (file explorer) open
+
+### Navigating Projects
+
+From Neo-tree, you can:
+- **Search files** - Use Telescope (`<leader>sf`) to fuzzy find files across the project
+- **Scratch window** - Switch to the scratch window to make new searches or run commands
+- **Navigate splits** - Use `Ctrl+h/j/k/l` to move between Neovim and tmux splits
+
+### Tmux Session Management
+
+- `Ctrl+B + s` - Show all available tmux sessions
+- `tmux kill-server` - Kill all tmux sessions and start fresh
+- `Ctrl+B + n` / `Ctrl+B + p` - Navigate between tmux windows
+
+### Custom Session Commands
+
+Additional keybinds for quick project switching:
+- `Alt+H` - Open session 0
+- `Alt+T` - Open session 1
+- `Alt+N` - Open session 2
+- `Alt+S` - Open session 3
+
 ## Manual Installation
 
 You can also run individual installers:
