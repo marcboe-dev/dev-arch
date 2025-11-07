@@ -164,4 +164,4 @@ This development environment setup is built upon and inspired by excellent work 
 
 ### Neovim & Tmux Configuration
 
-- **[hendrikmi](https://github.com/hendrikmi)** - The Neovim plugin configuration patterns, tmux integration strategies, and UI/color design are based on their dotfiles setup.
+- **[hendrikmi](https://github.com/hendrikmi)** - The Neovim plugin configuration patterns, tmux integration strategies, and UI/color design are based on his dotfiles setup.
