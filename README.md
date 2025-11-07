@@ -27,10 +27,6 @@ apt install -y git vim xclip
 
 Generate SSH key:
 
-```bash
-ssh-keygen -t ed25519 -C "marc.boehme186@gmail.com"
-```
-
 Copy public key to GitHub:
 
 ```bash

@@ -5,6 +5,9 @@ EDITOR="nvim"
 alias v='nvim'
 alias vi='nvim'
 
+# Set neovim as GIT_EDITOR
+export GIT_EDITOR="nvim"
+
 # Set custom Starship config path
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 

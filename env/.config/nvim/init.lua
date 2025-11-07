@@ -18,7 +18,7 @@ require('lazy').setup {
   require 'plugins.alpha',
   require 'plugins.autocompletion',
   require 'plugins.colortheme',
-  require 'plugins.floatterm',
+  -- require 'plugins.floatterm',
   require 'plugins.gitsigns',
   require 'plugins.indent-blankline',
   require 'plugins.live-server',
@@ -30,4 +30,5 @@ require('lazy').setup {
   require 'plugins.telescope',
   require 'plugins.treesitter',
   require 'plugins.vim-tmux-navigator',
+  require 'plugins.simple-image-opener',
 }
