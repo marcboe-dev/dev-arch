@@ -25,11 +25,11 @@ apt install -y git vim xclip
 
 ### 4. Setup SSH Key for GitHub
 
-Generate SSH key:
+Generate SSH key
 
-Copy public key to GitHub:
+Copy public key to GitHub
 
-Go to **GitHub → Settings → SSH and GPG keys → New SSH key** and paste the public key.
+Go to **GitHub’ Settings’ SSH and GPG keys’ New SSH key** and paste the public key.
 
 ### 5. Clone Repository
 
@@ -112,11 +112,24 @@ Available installers: `libs`, `rust`, `tmux`, `node`, `starship`, `neovim`, `zsh
 - All installations are non-interactive
 - Configuration files are backed up before modification
 
-Before starting nvim:
+### First Time Neovim Setup
 
-```
-# Remove treesitter plugin and cache
+Before starting nvim, clear treesitter cache:
+
+```bash
 rm -rf ~/.local/share/nvim/lazy/nvim-treesitter
 rm -rf ~/.local/state/nvim
 rm -rf ~/.cache/nvim
 ```
+
+## Acknowledgments
+
+This development environment setup is built upon and inspired by excellent work from the community:
+
+### Workflow & Architecture
+
+- **[ThePrimeAgen](https://github.com/ThePrimeAgen)** - The overall workflow, repository structure, installation automation, and the `tmux-sessionizer` concept are adapted from his development environment. His approach to terminal-driven development heavily influenced this configuration.
+
+### Neovim & Tmux Configuration
+
+- **[hendrikmi](https://github.com/hendrikmi)** - The Neovim plugin configuration patterns, tmux integration strategies, and UI/color design are based on their dotfiles setup.
