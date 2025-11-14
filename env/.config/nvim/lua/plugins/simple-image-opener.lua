@@ -1,6 +1,6 @@
 -- Simple image viewer for WSL2 - Opens images in Windows default app
+-- This entire plugin only loads on WSL
 return {
-  -- Only load on Ubuntu/WSL
   enabled = function()
     return vim.fn.has 'wsl' == 1 or vim.fn.executable 'wslview' == 1
   end,
