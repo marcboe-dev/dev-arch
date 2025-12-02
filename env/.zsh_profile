@@ -36,10 +36,7 @@ export WEZTERM_THEME="nord"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-export GOPATH=$HOME/.local/go
 export GIT_EDITOR=$VIM
-export DENO_INSTALL="$HOME/.deno"
-export N_PREFIX="$HOME/.local/n"
 export DEV_ENV_HOME="$HOME/personal/dev"
 
 dev_env() {
@@ -74,13 +71,13 @@ addToPathFront() {
 }
 
 addToPathFront $HOME/.zig
-addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/odin
 addToPathFront $HOME/.local/apps
 addToPathFront $HOME/.local/scripts
 addToPathFront $HOME/.local/bin
-addToPathFront $HOME/.local/npm/bin
-addToPathFront $HOME/.local/n/bin/
+# addToPathFront $HOME/.local/.npm-global/bin
+# addToPathFront $HOME/.local/npm/bin
+# addToPathFront $HOME/.local/n/bin/
 addToPathFront $HOME/.local/apps/
 
 alias keys="cat ~/personal/dev/cheatsheet/readline.txt"
