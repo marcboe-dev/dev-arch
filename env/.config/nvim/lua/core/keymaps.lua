@@ -102,6 +102,9 @@ vim.keymap.set('v', 'p', '"_dP', opts)
 -- Start search/replace for word under cursor; Pre-fills the search/replace command with the current word.
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Search and replace visually selected text (visual mode)
+vim.keymap.set('v', '<leader>s', [[y:%s/<C-r>"/<C-r>"/gI<Left><Left><Left>]])
+
 -- Explicitly yank to system clipboard (highlighted and entire row)
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])

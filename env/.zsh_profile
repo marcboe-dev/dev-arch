@@ -5,6 +5,11 @@ EDITOR="nvim"
 alias v='nvim'
 alias vi='nvim'
 
+# NVM
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 # Set neovim as GIT_EDITOR
 export GIT_EDITOR="nvim"
 
