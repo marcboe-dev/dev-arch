@@ -31,4 +31,5 @@ require('lazy').setup {
   require 'plugins.treesitter',
   require 'plugins.vim-tmux-navigator',
   require 'plugins.simple-image-opener',
+  require 'plugins.dap',
 }

@@ -29,9 +29,9 @@ vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts)
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
-vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', opts) -- existing
+vim.keymap.set({ 'n', 'v' }, '<leader>D', '"_d', opts) -- changed this for debugging config
 vim.keymap.set('n', '<leader>dd', '"_dd', opts) -- delete line
-vim.keymap.set('n', '<leader>D', '"_D', opts) -- delete to end of line
+-- vim.keymap.set('n', '<leader>D', '"_D', opts) -- delete to end of line
 
 -- Paste without losing register
 vim.keymap.set('x', '<leader>p', [["_dP]])
@@ -49,13 +49,6 @@ vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
 vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
-
--- Buffers
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
-vim.keymap.set('n', '<C-i>', '<C-i>', opts) -- to restore jump forward
-vim.keymap.set('n', '<leader>bx', ':Bdelete!<CR>', opts) -- close buffer
-vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 -- Increment/decrement numbers
 vim.keymap.set('n', '<leader>+', '<C-a>', opts) -- increment
@@ -102,37 +95,9 @@ vim.keymap.set('v', 'p', '"_dP', opts)
 -- Start search/replace for word under cursor; Pre-fills the search/replace command with the current word.
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Search and replace visually selected text (visual mode)
-vim.keymap.set('v', '<leader>s', [[y:%s/<C-r>"/<C-r>"/gI<Left><Left><Left>]])
-
 -- Explicitly yank to system clipboard (highlighted and entire row)
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
-
--- Toggle diagnostics
-local diagnostics_active = true
-
-vim.keymap.set('n', '<leader>do', function()
-  diagnostics_active = not diagnostics_active
-
-  if diagnostics_active then
-    vim.diagnostic.enable(true)
-  else
-    vim.diagnostic.enable(false)
-  end
-end)
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', function()
-  vim.diagnostic.jump { count = -1, float = true }
-end, { desc = 'Go to previous diagnostic message' })
-
-vim.keymap.set('n', ']d', function()
-  vim.diagnostic.jump { count = 1, float = true }
-end, { desc = 'Go to next diagnostic message' })
-
-vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- Save and load session
 vim.keymap.set('n', '<leader>ss', ':mksession! .session.vim<CR>', { noremap = true, silent = false })
@@ -140,6 +105,36 @@ vim.keymap.set('n', '<leader>sl', ':source .session.vim<CR>', { noremap = true, 
 
 -- Make current file executable
 vim.keymap.set('n', '<leader>x', ':!chmod +x %<CR>', { noremap = true, silent = true, desc = 'Make file executable' })
+
+-- ==========================================
+-- DAP (Debug Adapter Protocol) Keymaps
+-- ==========================================
+-- All debugging keymaps are defined in: dap.lua
+--
+-- Function Keys:
+--   F5  - Run/Continue
+--   F6  - Step Over
+--   F7  - Step Into
+--   F8  - Step Out
+--   F10 - Restart
+--
+-- Leader + d + action:
+--   <leader>dr  - Toggle REPL
+--   <leader>dt  - Terminate
+--   <leader>du  - Toggle DAP UI
+--   <leader>da  - Run with Args
+--   <leader>db  - Toggle Breakpoint
+--   <leader>dB  - Breakpoint Condition
+--   <leader>dC  - Run to Cursor
+--   <leader>de  - Evaluate
+--   <leader>dg  - Go to Line (No Execute)
+--   <leader>dj  - Down
+--   <leader>dk  - Up
+--   <leader>dl  - Run Last
+--   <leader>dP  - Pause
+--   <leader>ds  - Session
+--   <leader>dw  - Widgets
+-- ==========================================
 
 -- Tmux-sessionizer keymaps
 vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
