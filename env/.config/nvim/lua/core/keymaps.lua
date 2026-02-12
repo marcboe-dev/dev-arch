@@ -45,10 +45,16 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- Resize with arrows
-vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
+-- vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
+-- vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
+-- vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
+-- vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
+
+-- Alternative: Resize with Meta/Alt keys (more granular control)
+vim.keymap.set('n', '<A-,>', '<C-w>5<', opts) -- decrease width
+vim.keymap.set('n', '<A-.>', '<C-w>5>', opts) -- increase width
+vim.keymap.set('n', '<A-t>', '<C-W>+', opts) -- increase height
+vim.keymap.set('n', '<A-s>', '<C-W>-', opts) -- decrease height
 
 -- Increment/decrement numbers
 vim.keymap.set('n', '<leader>+', '<C-a>', opts) -- increment
@@ -65,12 +71,6 @@ vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', opts)
 vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', opts)
 vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', opts)
 vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', opts)
-
--- Tabs
-vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
-vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
-vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
-vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
 
 -- Toggle line wrapping
 vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
@@ -105,6 +105,10 @@ vim.keymap.set('n', '<leader>sl', ':source .session.vim<CR>', { noremap = true, 
 
 -- Make current file executable
 vim.keymap.set('n', '<leader>x', ':!chmod +x %<CR>', { noremap = true, silent = true, desc = 'Make file executable' })
+
+-- Quickfix navigation
+vim.keymap.set('n', ']]', '<cmd>cnext<CR>', { silent = true, desc = 'Next quickfix item' })
+vim.keymap.set('n', '[[', '<cmd>cprev<CR>', { silent = true, desc = 'Previous quickfix item' })
 
 -- ==========================================
 -- DAP (Debug Adapter Protocol) Keymaps

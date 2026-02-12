@@ -32,4 +32,5 @@ require('lazy').setup {
   require 'plugins.vim-tmux-navigator',
   require 'plugins.simple-image-opener',
   require 'plugins.dap',
+  require 'plugins.oil',
 }
